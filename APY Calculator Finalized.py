@@ -59,7 +59,7 @@ class APYCalculator:
     def create_input_boxes(self):
         y = INITIAL_INFO_Y
 
-        current_amount_box = InputBox(50, y, 200, 32, "Current Amount: $")
+        current_amount_box = InputBox(50, y, 200, 32, "Current Balance: $")
         self.input_boxes.append(current_amount_box)
 
         apy_rate_box = InputBox(50, y + 40, 200, 32, "APY Interest Rate %: ")
@@ -128,7 +128,7 @@ class APYCalculator:
             final_total += deposit_amount * 4
             total_deposited += deposit_amount * 4
 
-        self.results_text = "Total earned per month:\n"
+        self.results_text = "Amount earned per month:\n"
         for i, earned in enumerate(earned_per_month[:6]):
             self.results_text += f"Month {i + 1}: ${earned:.2f}\n"
 
@@ -139,7 +139,7 @@ class APYCalculator:
 
         self.results_text += f"\nTotal deposited: ${total_deposited:.2f}\n"
         self.results_text += f"Total earned: ${total_earned:.2f}\n"
-        self.results_text += f"Final total after 1 year: ${final_total:.2f}"
+        self.results_text += f"Final balance after 1 year: ${final_total:.2f}"
 
     def draw_results(self):
         if self.results_text:
@@ -179,7 +179,7 @@ class APYCalculator:
             x_1_6 = x_7_12 - max_width - 10
 
             # Display "total earned per month" title
-            earned_text = "Total Earned per Month:"
+            earned_text = "Amount Earned per Month:"
             earned_font_size = 24
             earned_font = pygame.font.SysFont(None, earned_font_size, bold=True)
             earned_text_surface = earned_font.render(earned_text, True, (0, 0, 0))
